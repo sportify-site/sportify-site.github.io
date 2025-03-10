@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sportify Care</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    header {
+      background-color: #0d7377; /* cor de fundo do topo */
+      padding: 1rem 2rem;
+    }
+
+    /* Barra de navegação */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: #ffffff;
+      font-size: 1.5rem;
+    }
+
+    ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    ul.menu li {
+      display: inline-block;
+    }
+
+    ul.menu li a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    ul.menu li a:hover {
+      color: #ffcb5c; /* cor de hover no menu */
+    }
+
+    /* Seção Hero */
+    .hero {
+      background: url("https://via.placeholder.com/1600x600/0d7377/FFFFFF?text=Banner") no-repeat center center;
+      background-size: cover;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero .btn-demo {
+      background-color: #ffcb5c;
+      color: #0d7377;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero .btn-demo:hover {
+      background-color: #ffc531;
+    }
+
+    /* Seção de destaque com celular e laptop */
+    .highlight-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      background-color: #ffffff;
+    }
+
+    .highlight-section img {
+      max-width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .highlight-content {
+      max-width: 500px;
+    }
+
+    .highlight-content h2 {
+      margin-bottom: 1rem;
+      color: #0d7377;
+    }
+
+    .highlight-content p {
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    /* Seção IA (IA + Human Touch) */
+    .ai-section {
+      padding: 2rem;
+      background-color: #daf7f5; /* cor de fundo clara para destacar a seção */
+      text-align: center;
+    }
+
+    .ai-section h2 {
+      color: #0d7377;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .ai-section p.subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-item {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-item h3 {
+      color: #0d7377;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #0d7377;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    /* Área de contatos e links dentro do footer */
+    .footer-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-contacts .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .footer-contacts .contact-block a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-contacts .contact-block a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links a {
+      color: #fff;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-credits {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho / Menu -->
+  <header>
+    <nav>
+      <div class="logo">Sportify</div>
+      <ul class="menu">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">SPORTIFY FISIO</a></li>
+        <li><a href="#">SPORTIFY COACH</a></li>
+        <li><a href="#">HOW IT WORKS</a></li>
+        <li><a href="#">WHO WE ARE</a></li>
+        <li><a href="#">PATENT</a></li>
+        <li><a href="#">OUR TECHNOLOGY</a></li>
+        <li><a href="#">PT</a></li>
+        <li><a href="#">EN</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Seção principal / Hero -->
+  <section class="hero">
+    <h1>Prevention, Diagnosis and Treatment</h1>
+    <p>You are in control of your health</p>
+    <button class="btn-demo">Request the DEMO</button>
+  </section>
+
+  <!-- Seção de destaque (celular e laptop) -->
+  <section class="highlight-section">
+    <!-- Imagem do celular -->
+    <img 
+      src="https://3dmeasureup.ai/wp-content/uploads/2024/06/FAQ-3D-Measure-Up.png" 
+      alt="Phone UI" 
+    />
+
+    <!-- Conteúdo textual sobre o sistema -->
+    <div class="highlight-content">
+      <h2>Sportify Backoffice</h2>
+      <p>
+        Acompanhe seus agendamentos, exercícios e histórico de forma prática. 
+        Tenha um resumo semanal completo para monitorar seu progresso.
+      </p>
+      <p>
+        Com nossa tecnologia inovadora, você pode prevenir, diagnosticar e 
+        tratar possíveis problemas de saúde de forma integrada.
+      </p>
+    </div>
+
+    <!-- Imagem do laptop -->
+    <img 
+      src="https://3dmeasureup.ai/wp-content/uploads/2024/05/3DMU-Banner-1.webp" 
+      alt="Laptop UI" 
+    />
+  </section>
+
+  <!-- Seção IA (IA + Human Touch) -->
+  <section class="ai-section">
+    <h2>The precision of Artificial Intelligence (AI)</h2>
+    <p class="subtitle">with the human touch</p>
+    
+    <div class="features-grid">
+      <!-- Item 1 -->
+      <div class="feature-item">
+        <h3>Physio Care</h3>
+        <p>
+          Sportify’s physical therapists are here to promote engagement 
+          and ensure patients receive the care they need to perform at their best.
+        </p>
+      </div>
+      
+      <!-- Item 2 -->
+      <div class="feature-item">
+        <h3>Personalized Physiotherapy</h3>
+        <p>
+          Adapts therapy: Sportify’s algorithm fits every treatment to the patient’s 
+          individual needs, ranging from physical, psychological and educational aspects of pain.
+        </p>
+      </div>
+      
+      <!-- Item 3 -->
+      <div class="feature-item">
+        <h3>Technology Beyond Sensors</h3>
+        <p>
+          Sportify AI Moving® features real-time automated exercise feedback 
+          with gamified evolution movement usage.
+        </p>
+      </div>
+      
+      <!-- Item 4 -->
+      <div class="feature-item">
+        <h3>Telehealth</h3>
+        <p>
+          Remote assistance with management of the clinical picture.
+        </p>
+      </div>
+      
+      <!-- Item 5 -->
+      <div class="feature-item">
+        <h3>Data Science</h3>
+        <p>
+          Information analysis with machine learning for better treatment design.
+        </p>
+      </div>
+      
+      <!-- Item 6 -->
+      <div class="feature-item">
+        <h3>Predictive Analytics</h3>
+        <p>
+          Helps predict the prognosis and evolution of treatment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé com área de contatos e links -->
+  <footer>
+    <div class="footer-contacts">
+      <div class="contact-block">
+        <span>&#128222; (62) 3532-5285</span>
+        <span>&#128222; (62) 999139-8441</span>
+      </div>
+      <div class="contact-block">
+        <p>
+          Av. Raja Gabaglia, 2000<br/>
+          Tower 1 - Room 236 - Estoril<br/>
+          Goiania - GO CEP 74600-900
+        </p>
+      </div>
+      <div class="contact-block">
+        <p>@Sportify.care</p>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">Terms of use</a> |
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer-credits">
+      <p>&copy; 2024 developed by GIGO. All rights reserved.</p>
+    </div>
+  </footer>
+  
+</body>
+</html>
